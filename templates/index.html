@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style>
+
+
+        * {
+	box-sizing: border-box;
+}
+body {
+	font-family: poppins;
+	font-size: 16px;
+	color: #4ab6cb;
+}
+.form-box {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: auto auto;
+	padding: 40px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #000;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 740px;
+	height: 825px;
+}
+
+.form-box:before {
+	background-image: url("https://i.postimg.cc/kDPrrynm/wallpaperflare-com-wallpaper-1.jpg");
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	content: "";
+	position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	z-index: -1;
+	display: block;
+	filter: blur(1px);
+}
+
+.form-box .header-text {
+	font-size: 32px;
+	font-weight: 600;
+	padding-bottom: 30px;
+	text-align: center;
+}
+.form-box input {
+	margin: 10px 0px;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	font-size: 18px;
+	font-family: poppins;
+}
+.form-box input[type=checkbox] {
+	display: none;
+}
+.form-box label {
+	position: relative;
+	margin-left: 5px;
+	margin-right: 10px;
+	top: 5px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.form-box label:before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	background-color: #ddd;
+}
+.form-box input[type=checkbox]:checked+label:before {
+	content: "\2713";
+	font-size: 20px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 20px;
+}
+.form-box span {
+	font-size: 14px;
+}
+.form-box button {
+	background-color: deepskyblue;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+	padding: 10px;
+	margin: 20px 0px;
+}
+span a {
+	color: #BBB;
+}
+
+.content .field{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.field input{
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  border: 1px solid rgba(25, 255, 240, 40%);
+  border-radius: 123px;
+  background: rgba(0, 255, 240, 0.16);
+}
+
+
+    </style>
+	<meta charset="UTF-8">
+	<title>Heart Prediction</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body background="\Users\admin\Heart Attack Analysis and Prediction\templates\h.jpg">
+	<div class="form-box">
+		<div class="header-text">
+			Life expectancy Prediction
+		</div>
+
+		<div class="field">
+			<form action="{{ url_for('predict')}}"method="post">
+				<span class="fa fa-user"></span>
+				<input type="number" name="year" placeholder="Year" required="required" />
+				<span class="fa fa-user"></span>
+				<input type="number" name="adult_mortality" placeholder="adult_mortality" required="required" />
+				<span class="fa fa-user"></span>
+				<input type="number" name="measles" placeholder="measles" required="required" />
+				<span class="fa fa-user"></span>
+				<input type="number" name="under_five_deaths" placeholder="under_five_deaths" required="required" />
+				<span class="fa fa-user"></span>
+				<input type="number" name="hiv/aids" placeholder="hiv/aids" required="required" />
+                <span class="fa fa-user"></span>
+				<input type="number" name="income_composition_of_resources" placeholder="income_composition_of_resources" required="required" />
+                <span class="fa fa-user"></span>
+				<input type="number" name="schooling" placeholder="schooling" required="required" />
+                <span class="fa fa-user"></span>
+				<input type="number" name="Developing" placeholder="Developing" required="required" />
+				
+
+				<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+			</form>
+		</div>
+			 <br>
+			 <br>
+			 {{ prediction_text }}
+	</div>
+</body>
+</html>
